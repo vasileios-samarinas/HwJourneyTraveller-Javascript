@@ -48,4 +48,13 @@ const transports = this.journeys.map((journey) => {
   })
 };
 
+
+// Traveller.prototype.getUniqueModesOfTransport = function () {
+//   return this.journeys.reduce((results, journey) => {
+//     if (!results.includes(journey.transport)) {
+//        results.push(journey.transport);
+//     };
+//     return results
+//   }, []);
+// };
 module.exports = Traveller;
