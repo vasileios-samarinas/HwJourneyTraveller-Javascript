@@ -2,12 +2,17 @@ const Traveller = function(journeys) {
   this.journeys = journeys;
 };
 
+// enumerator is map
+
 Traveller.prototype.getJourneyStartLocations = function() {
   return this.journeys.map((journey) => {
     return journey.startLocation;
 });
 };
-
+// or / the syntax of callback is the => each thing
+// const results= this.journeys.(map) =>  {
+// return journey.startLocation}
+// return results
 Traveller.prototype.getJourneyEndLocations = function () {
   return this.journeys.map((journey) =>{
     return journey.endLocation;
@@ -32,11 +37,15 @@ Traveller.prototype.calculateTotalDistanceTravelled = function () {
   },0);
 };
 
+// make an array on true/false conditions
 
 Traveller.prototype.getUniqueModesOfTransport = function () {
-return this.journeys.unique((journey) => {
+const transports = this.journeys.map((journey) => {
   return journey.transport;
-});
+})
+  return transports.filter((transport,index) =>{
+    return transports.indexOf(transport) === index;
+  })
 };
 
 module.exports = Traveller;
